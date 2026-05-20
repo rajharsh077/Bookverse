@@ -2,8 +2,12 @@ const express=require('express');
 const app=express();
 const path=require('path');
 const cors=require('cors');
+require("dotenv").config();
 
-app.use(cors());
+app.use(cors({
+  // origin: "https://your-frontend.vercel.app",
+  // credentials: true
+}));
 
 const bcrypt=require('bcrypt');
 
@@ -337,7 +341,8 @@ app.patch('/pay-fine', authenticateJWT, async (req, res) => {
 
 
   
+const PORT = process.env.PORT || 3000;
 
-app.listen(3000,()=>{
-    console.log("server started");
-})
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
