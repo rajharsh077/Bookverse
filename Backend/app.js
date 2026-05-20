@@ -5,8 +5,8 @@ const cors=require('cors');
 require("dotenv").config();
 
 app.use(cors({
-  // origin: "https://your-frontend.vercel.app",
-  // credentials: true
+  origin: "https://bookverse-gilt.vercel.app/",
+  credentials: true
 }));
 
 const bcrypt=require('bcrypt');
