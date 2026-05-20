@@ -213,7 +213,7 @@ The app will be live at `http://localhost:5173`.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how to get started:
+Contributions are welcome!
 
 
 <div align="center">
