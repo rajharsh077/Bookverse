@@ -6,6 +6,7 @@ require("dotenv").config();
 
 app.use(cors({
   origin: "https://bookverse-gilt.vercel.app",
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   credentials: true
 }));
 
