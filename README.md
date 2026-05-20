@@ -20,9 +20,6 @@
 
 **BookVerse** is a feature-rich, full-stack Library Management System built on the **MERN stack**. It provides a seamless experience for both regular users and administrators — enabling book browsing, lending, returns, wishlist management, borrowed history tracking, and automatic overdue fine calculation. Admins get a dedicated dashboard to manage books and users across the platform.
 
-> 🔗 **Live Demo:** [bookverse-gilt.vercel.app](https://bookverse-gilt.vercel.app)  
-> 🔗 **Backend API:** [bookverse-gs0o.onrender.com](https://bookverse-gs0o.onrender.com)
-
 ---
 
 ## ✨ Features
@@ -113,7 +110,7 @@ Create a `.env` file in the `backend/` directory:
 ```env
 JWT_SECRET=your_secret_key
 PORT=3000
-MONGODB_URI=your_mongodb_atlas_connection_string
+MONGO_URL=your_mongodb_atlas_connection_string
 ```
 
 Start the backend server:
@@ -208,6 +205,7 @@ The app will be live at `http://localhost:5173`.
 
 ## 🔮 Future Improvements
 
+- [ ] 📧 Email notifications for upcoming due dates
 - [ ] 💳 Payment gateway integration for fine collection
 - [ ] 📈 Advanced analytics dashboard for admins
 - [ ] 🤖 AI-powered book recommendation system
@@ -226,6 +224,12 @@ git commit -m "feat: add your feature"
 git push origin feature/your-feature-name
 # Open a Pull Request
 ```
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
