@@ -5,7 +5,7 @@ const cors=require('cors');
 require("dotenv").config();
 
 app.use(cors({
-  origin: "https://bookverse-gilt.vercel.app/",
+  origin: "https://bookverse-gilt.vercel.app",
   credentials: true
 }));
 
