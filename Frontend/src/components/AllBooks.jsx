@@ -17,11 +17,14 @@ const AllBooks = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:3000/admin/dashboard/Allbooks', {
-          headers: {
-            Authorization: `Bearer ${token}`  // Send the token in the Authorization header
-          }
-        });
+        const response = await axios.get(
+  `${import.meta.env.VITE_API_URL}/admin/dashboard/Allbooks`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
         setBooks(response.data);
       } catch (error) {
         console.error('Error fetching books:', error);
@@ -44,11 +47,14 @@ const AllBooks = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:3000/admin/delete/book/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,  // Include the token in the request
-        }
-      });
+      await axios.delete(
+  `${import.meta.env.VITE_API_URL}/admin/delete/book/${id}`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
 
       // Remove the book from the state if deletion is successful
       setBooks((prevBooks) => prevBooks.filter((book) => book.id !== id)); // Remove book from state

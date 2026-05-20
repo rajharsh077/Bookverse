@@ -58,11 +58,15 @@ const Dashboard = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:3000/admin/submitBook', bookData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.post(
+  `${import.meta.env.VITE_API_URL}/admin/submitBook`,
+  bookData,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
 
       if (res.data.status === 'success') {
         setMessage(res.data.message);

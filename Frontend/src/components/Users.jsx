@@ -35,11 +35,14 @@ const Users = () => {
           navigate('/admin');  // Redirect to admin login page
           return;
         }
-    const response = await axios.get("http://localhost:3000/admin/dashboard/users", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await axios.get(
+  `${import.meta.env.VITE_API_URL}/admin/dashboard/users`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
     if (Array.isArray(response.data)) {
       setUsers(response.data);
     } else {

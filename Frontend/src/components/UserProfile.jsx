@@ -31,11 +31,14 @@ const UserProfile = () => {
   return;
 }
 
-        const res = await axios.get('http://localhost:3000/lent', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await axios.get(
+  `${import.meta.env.VITE_API_URL}/lent`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
 
         const books = res.data;
         console.log(books);
@@ -79,12 +82,15 @@ const UserProfile = () => {
     }
 
     try {
-      const res = await axios.delete("http://localhost:3000/return", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        data: { bookId }
-      });
+      const res = await axios.delete(
+  `${import.meta.env.VITE_API_URL}/return`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    data: { bookId }
+  }
+);
       toast.success(res.data.message || "Book returned successfully!", {
         position: "top-right",
         autoClose: 5000,
@@ -105,10 +111,15 @@ const UserProfile = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.patch("http://localhost:3000/pay-fine", 
-        { bookId },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      const res = await axios.patch(
+  `${import.meta.env.VITE_API_URL}/pay-fine`,
+  { bookId },
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
 
       if (res.data.success) {
         toast.success(`✅ Fine for "${res.data.bookTitle}" paid! Returning book...`, {
@@ -117,10 +128,13 @@ const UserProfile = () => {
           theme: "colored",
         });
 
-        const returnRes = await axios.delete("http://localhost:3000/return", {
-          headers: { Authorization: `Bearer ${token}` },
-          data: { bookId },
-        });
+        const returnRes = await axios.delete(
+  `${import.meta.env.VITE_API_URL}/return`,
+  {
+    headers: { Authorization: `Bearer ${token}` },
+    data: { bookId },
+  }
+);
 
         toast.success(returnRes.data.message || "Book returned successfully!", {
           position: "top-right",

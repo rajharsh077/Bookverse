@@ -27,11 +27,14 @@ const WishList = () => {
           return;
         }
 
-        const response = await axios.get("http://localhost:3000/wishlist", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+  `${import.meta.env.VITE_API_URL}/wishlist`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
 
         if (response.data && response.data.wishlist) {
           setWishlist(response.data.wishlist);
@@ -49,45 +52,55 @@ const WishList = () => {
   }, [name, navigate]);
 
   const handleRemoveFromWishlist = async (bookId) => {
-    try {
-      const response = await axios.delete("http://localhost:3000/wishlist/remove", {
+  try {
+    const response = await axios.delete(
+      `${import.meta.env.VITE_API_URL}/wishlist/remove`,
+      {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         data: { bookId },
-      });
+      }
+    );
 
-      alert(response.data.message);
-      setWishlist((prevWishlist) => prevWishlist.filter(book => book.id !== bookId));
-    } catch (error) {
-      console.error("Failed to remove from wishlist", error);
-      alert("Error removing book from wishlist");
-    }
-  };
+    alert(response.data.message);
+
+    setWishlist((prevWishlist) =>
+      prevWishlist.filter((book) => book.id !== bookId)
+    );
+  } catch (error) {
+    console.error("Failed to remove from wishlist", error);
+    alert("Error removing book from wishlist");
+  }
+};
 
   const handleLend = async (bookId) => {
-    const confirmLend = window.confirm("Do you want to lend this book?");
-    if (!confirmLend) return;
+  const confirmLend = window.confirm("Do you want to lend this book?");
+  
+  if (!confirmLend) return;
 
-    try {
-      const res = await axios.post(
-        "http://localhost:3000/lend",
-        { bookId },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+  try {
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/lend`,
+      { bookId },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
 
-      alert(res.data.message);
+    alert(res.data.message);
 
-      // Optionally remove from wishlist after lending
-      setWishlist((prevWishlist) => prevWishlist.filter(book => book.id !== bookId));
-    } catch (err) {
-      alert(err.response?.data?.message || "Failed to lend book");
-    }
-  };
+    // Optionally remove from wishlist after lending
+    setWishlist((prevWishlist) =>
+      prevWishlist.filter((book) => book.id !== bookId)
+    );
+
+  } catch (err) {
+    alert(err.response?.data?.message || "Failed to lend book");
+  }
+};
 
   return (
     <div>

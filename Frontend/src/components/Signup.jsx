@@ -24,7 +24,10 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/signup', formData);
+      const response = await axios.post(
+  `${import.meta.env.VITE_API_URL}/signup`,
+  formData
+);
       console.log('Signup successful', response.data);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("name", response.data.user.name);

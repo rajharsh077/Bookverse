@@ -22,7 +22,10 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/admin/dashboard', formData);
+      const res = await axios.post(
+  `${import.meta.env.VITE_API_URL}/admin/dashboard`,
+  formData
+);
        const { token } = res.data;
     
     // Save the token in localStorage after a successful login

@@ -56,7 +56,9 @@ const Params = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/books');
+        const res = await axios.get(
+  `${import.meta.env.VITE_API_URL}/books`
+);
         setBooks(res.data);
       } catch (err) {
         console.error("Failed to fetch books", err);
@@ -78,14 +80,14 @@ const Params = () => {
 
     try {
       const res = await axios.post(
-        'http://localhost:3000/lend',
-        { bookId },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          }
-        }
-      );
+  `${import.meta.env.VITE_API_URL}/lend`,
+  { bookId },
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
       alert(res.data.message);
     } catch (err) {
       alert(err.response?.data?.message || "Failed to lend book");
@@ -103,14 +105,14 @@ const Params = () => {
 
       try {
         await axios.post(
-          `http://localhost:3000/wishlist`,
-          { book },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            }
-          }
-        );
+  `${import.meta.env.VITE_API_URL}/wishlist`,
+  { book },
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
 
         setWishlist((prevWishlist) => [...prevWishlist, book]);
         toast.success(`${book.title} added to Wishlist!`);

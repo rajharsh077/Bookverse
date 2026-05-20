@@ -10,7 +10,9 @@ const Navbar = () => {
 
   const showBooks = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/books/');
+      const res = await axios.get(
+  `${import.meta.env.VITE_API_URL}/books/`
+);
       setbooks(res.data);
       // After fetching, navigate to the /books page and pass the books data as state
       navigate('/books', { state: { books: res.data } });
