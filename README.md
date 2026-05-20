@@ -9,7 +9,6 @@
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github)](https://github.com/rajharsh077/Bookverse)
 
 ![MERN Stack](https://img.shields.io/badge/Stack-MERN-00D8FF?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
 
 </div>
@@ -199,13 +198,12 @@ The app will be live at `http://localhost:5173`.
 |---------|----------|-----|
 | Frontend | Vercel | [bookverse-gilt.vercel.app](https://bookverse-gilt.vercel.app) |
 | Backend | Render | [bookverse-gs0o.onrender.com](https://bookverse-gs0o.onrender.com) |
-| Database | MongoDB Atlas | Cloud-hosted |
+| Database | MongoDB Atlas | 
 
 ---
 
 ## 🔮 Future Improvements
 
-- [ ] 📧 Email notifications for upcoming due dates
 - [ ] 💳 Payment gateway integration for fine collection
 - [ ] 📈 Advanced analytics dashboard for admins
 - [ ] 🤖 AI-powered book recommendation system
@@ -217,21 +215,6 @@ The app will be live at `http://localhost:5173`.
 
 Contributions are welcome! Here's how to get started:
 
-```bash
-# Fork the repo, then:
-git checkout -b feature/your-feature-name
-git commit -m "feat: add your feature"
-git push origin feature/your-feature-name
-# Open a Pull Request
-```
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
-
----
 
 <div align="center">
 
